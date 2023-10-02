@@ -1,0 +1,32 @@
+The application development will be developed using NextJs with a front end done using NextJS 13 and a backend which is a nodejs application connected to a MongoDB.  
+
+To get started, we will install the following prerequisite. 
+
+Then we will install the following NodeJS versions 
+
++ NodeJS 20.x.x
++ MongopDB - please use your own local version 
++ Visual Studio Code  for Front end development
++ Visual Studio 2022 with .NET 7 - for Backend development
+
+Syncfusion will be installed using the npm and visual studio nuget automatically when you build the modules.
+
+For database setup, when the IOT Web API Project starts up, it will connect to the MongoDb instance configured and create the default data.
+This is under the Setup/SetupBase.cs file. 
+
+To hide items from the theme - please do the following :
+
+Example hide Setting popup
+app/configs/themeConfig.js
+- add new setting
+    showSettings: false,
+app/store/layoutReducer.js 
+- add under initial state
+  showSettings: themeConfig.layout.showSettings,
+then in the class - example 
+app/(dashboard}/layout.js
+  const showSettings = useSelector((state) => state.layout.showSettings);
+and you can show or hide things from there. 
+
+
+For the navBar, i have made a file called navBarConfig in app/configs folder and i deployed it in components/partials/header/index.jsx - use this 
